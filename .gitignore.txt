@@ -1,0 +1,4 @@
+node_modules/
+exe_files/
+allowed_hwids.json
+.DS_Store

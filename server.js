@@ -5,11 +5,9 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
-const PORT = process.env.PORT || 3000; // Render নিজে পোর্ট দেয়
+const PORT = process.env.PORT || 3000;
 
-// ====== আপনার পাসওয়ার্ড এখানে দিন ======
-const ADMIN_PASSWORD = '1234';  // পরিবর্তন করুন
-
+const ADMIN_PASSWORD = 'gisan123#';
 const HWID_FILE = './allowed_hwids.json';
 const EXE_DIR = './exe_files/';
 
@@ -31,6 +29,12 @@ function isAuth(req, res, next) {
     res.redirect('/login');
 }
 
+// ====== রুট পেজ - এটা যোগ করুন ======
+app.get('/', (req, res) => {
+    res.redirect('/login');
+});
+
+// ====== লগইন ======
 app.get('/login', (req, res) => {
     res.send(`
         <h2>🔐 পাসওয়ার্ড দিন</h2>
